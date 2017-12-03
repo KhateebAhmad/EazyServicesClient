@@ -1,0 +1,172 @@
+<script type="text/javascript" src="./js/User.js"></script>
+<div th:fragment="content" class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="home"
+			onclick="showHome();" checked><label for="tab-1" class="tab">Home</label>
+		<input id="tab-2" type="radio" name="tab" class="search"
+			onclick="showSearch();"><label for="tab-2" class="tab">Search</label>
+		<input id="tab-3" type="radio" name="tab" class="appointmentHistory"
+			onclick="showAppointments();"><label for="tab-3" class="tab">Appointment
+			History</label>
+		<div class="login-form">
+
+			<div class="home-htm">
+				<div class="w3-card-8">
+
+					<div class="w3-container w3-center">
+	  					<h3>User Details</h3>
+	  					<img src="images/img_avatar3.png"  alt="Avatar" style="width:15%">
+	  					<span id="userDetailName"></span>
+	  					<span id="userDetailAddress"></span>
+	  					<span id="userDetailContactNo"></span>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="search-htm">
+			<div id="searchFields">
+				<div class="group">
+					<label for="pass" class="label">Services</label> <select
+						id="servicesDropdown" class="input">
+						<option value="select" style="color: black;">--Select--</option>
+					</select>
+				</div>				
+				
+				<div class="group">
+					<label for="pass" class="label">Region</label> <select
+						name="regionId" class="input" id="regionIdentifier">
+						<option value="select" style="color: black;">--Select--</option>
+						<option style="color: black;" value="dublin1">Dublin1</option>
+						<option style="color: black;" value="dublin2">Dublin2</option>
+						<option style="color: black;" value="dublin3">Dublin3</option>
+						<option style="color: black;" value="dublin4">Dublin4</option>
+						<option style="color: black;" value="dublin5">Dublin5</option>
+						<option style="color: black;" value="dublin6">Dublin6</option>
+						<option style="color: black;" value="dublin7">Dublin7</option>
+						<option style="color: black;" value="dublin8">Dublin8</option>
+						<option style="color: black;" value="dublin9">Dublin9</option>
+						<option style="color: black;" value="dublin10">Dublin10</option>
+					</select>
+				</div>
+				
+				<div class="group">
+					<input type="button" class="button" value="Search" onclick="searchSP();">
+				</div>
+			
+				
+				<div id="dataDiv" style="display: none;">
+				<span id="noResultError" style="display: none">No results</span>
+				</div>
+				
+				
+				
+				<div id="modalPopup" class="w3-modal" style="overflow:auto;">
+    <div class="w3-modal-content w3-card-4">
+	<header class="w3-container w3-teal"> 
+        <span onclick="$('#modalPopup').hide();" class="w3-button w3-display-topright">&times;</span>
+        <h2>Reviews</h2>
+      </header>
+	
+      <div class="w3-container">
+        
+        <div id="modalData">
+		
+		</div>
+        
+      </div>
+    </div>
+  </div>
+				
+				</div>
+				<div id="appointmentFields" style="display: none;">
+					
+					<div class="group">
+							<label for="user" class="label">Appointment Name</label> <input
+								id="appointmentName" type="text" class="input">
+						</div>
+						
+					<div class="group">
+							<label for="user" class="label">Appointment Description</label> <textarea id="appointmentDescription" class="input"></textarea>
+						</div>
+					
+					<div class="group">
+							<label for="user" class="label">Address</label> <input
+								id="appointmentAddress" type="text" class="input">
+						</div>
+						
+					<div class="group">
+							<label for="user" class="label">Contact No.</label> <input
+								id="appointmentContactNo" type="text" class="input">
+						</div>
+						
+					<div class="group">
+							<label for="user" class="label">Appointment Date</label> <input
+								id="appointmentDateTime" type="date" class="input">
+						</div>
+					
+					<div class="group">
+							<label for="user" class="label">Service Provider Name</label> <input
+								id="SPname" type="text" class="input" disabled="disabled">
+						</div>						
+						
+					 <div class="group">
+							<label for="user" class="label">Organisation Name</label> <input
+								id="orgName" type="text" class="input" disabled="disabled">
+						</div>
+						
+					<div class="group">
+							<label for="user" class="label">Service Provider Contact No.</label> <input
+								id="contactNo" type="text" class="input" disabled="disabled">
+						</div>
+						
+					<div class="group">
+							<label for="user" class="label">Service Provider Address</label> <input
+								id="address" type="text" class="input" disabled="disabled">
+						</div>
+						
+					<div class="group">
+							<label for="user" class="label">Region</label> <input
+								id="region" type="text" class="input" disabled="disabled">
+						</div>
+						
+					<div class="group">
+					<input type="button" class="button" value="Back to search results" onclick="backToSearch();">
+					
+					</div>
+					
+					<div class="group">
+					<input type="button" class="button" value="Book Appointment" onclick="appointmentRequest();">
+					
+					</div>
+					
+					
+				</div>
+				<div id="appointmentResultSpace" style="display: none;">
+					<span class="success-message" id="successMessage"></span>
+					<span class="failure-message" id="failureMessage"></span>
+					&nbsp;
+					<div class="group">
+					<input type="button" class="button" value="Back to search results" onclick="backToSearch();">
+					
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="appointmentHistory-htm">
+				<div id="appointmentList" style="display: none;  overflow: scroll; height: 840px;">
+				<span id="noResultError" style="display: none">No results</span>
+				</div>
+				
+				<div id="appointmentDetailsSpace" style="display: none;">
+					
+				</div>
+				
+				
+
+			</div>
+		</div>
+	</div>
+</div>
