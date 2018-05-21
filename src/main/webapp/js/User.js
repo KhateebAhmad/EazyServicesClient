@@ -49,6 +49,7 @@ function fetchServices(){
 }
 
 function populateServicesOnPage(){
+	$('#servicesDropdown').empty();
 	var arrayLength= servicesFetchedFromDb.length;
 	for (var i = 0; i < arrayLength; i++) {
 		$('#servicesDropdown').append('<option style="color: black;" value="'+servicesFetchedFromDb[i].id+'">'+servicesFetchedFromDb[i].name+'</option>');
