@@ -4,6 +4,7 @@
 $( document ).ready(function() {
 	$('.search-htm').hide();
 	$('.appointmentHistory-htm').hide();
+	$('#chatBox').load( "pages/chat.html");
 });
 
 var servicesFetchedFromDb;
